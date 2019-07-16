@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Data", "Learning.Data\Learning.Data.csproj", "{E0D3F1D9-84EC-4E7F-ACF0-883BAA45F208}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Web", "Learning.Web\Learning.Web.csproj", "{27E72A4A-FA65-492C-80E6-0E01ED651880}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0D3F1D9-84EC-4E7F-ACF0-883BAA45F208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0D3F1D9-84EC-4E7F-ACF0-883BAA45F208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0D3F1D9-84EC-4E7F-ACF0-883BAA45F208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0D3F1D9-84EC-4E7F-ACF0-883BAA45F208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E72A4A-FA65-492C-80E6-0E01ED651880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E72A4A-FA65-492C-80E6-0E01ED651880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E72A4A-FA65-492C-80E6-0E01ED651880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E72A4A-FA65-492C-80E6-0E01ED651880}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

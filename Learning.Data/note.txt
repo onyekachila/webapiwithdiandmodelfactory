@@ -1,0 +1,53 @@
+﻿After modelling the database table using both POCO classes and fluent api configuartion.
+We arrived at the summary below.
+
+Each “Course” has a “Subject”.
+Each “Tutor” can teach multiple “Courses”.
+Each “Student” can enroll in multiple “Courses”. So we’ll have Many-to-Many table to persist the relation called “Enrollment”.
+
+Repository pattern helps us build a level of abstraction over our data store.
+We repository pattern we can achieve the following
+
+Listing all available subjects, and listing single subject by querying ID.
+Listing all available courses including the sub-models (Subject, and Tutor).
+Getting single course by querying ID including the sub-models(Subject, Tutor, and Enrolled Students)
+Listing all available students including all sub-models (Enrolled in Courses, Course Subject, and Tutor)
+Get summary of all available students.
+List all enrolled students in specific course by querying course ID.
+List all classes for a certain student by querying Username.
+Get certain student by querying Username.
+Authenticate students by validating Username and Password.
+Enroll an authenticated student in a course.
+CRUD operations for Students.
+CRUD operations for Courses.
+
+returning IQueryable<T> for any method returns a collection of objects, this will facilitate the pagination, sorting, and results ordering 
+in our Web API because IQueryable will give us deferred execution and fully support for LINQ-to-SQL. In other words IQueryable result will 
+save us from returning too many unwanted rows from the database.
+
+Added an empty MVC web application and named it Learning.Web and checking the web api checkbox then click ok.
+
+We are returning all the fields from the domain model object and leaking sensitive information to the client, for example if you take a 
+look on “Tutor” object you will notice that we are returning the “password” field which shouldn’t be leaked to API consumer. This can be 
+solved using the Model Factory pattern.
+
+Inside each method we are instantiating our repository, this operation is expensive as it includes opening connection to the database,
+we need to implement Dependency Injection pattern, this can be solved by using Ninject DI framework.
+
+Install-Package Ninject -Version 3.0.1.10
+Install-Package Ninject.Web.Common -Version 3.0.0.7
+Install-Package WebApiContrib.IoC.Ninject -Version 0.9.3
+
+to avoid issues
+
+Implement the Model Factory Pattern
+The Model Factory Pattern will help us in shaping and controlling the response returned to the client. This is what is also known as DTO this days
+
+By doing this we’ve fixed two important flaws we have identified in the previous post which they are:
+
+Self referencing when returning chain ob objects.
+Controlling the fields returned to the client. (i.e. “TutorModel” is not returning the “password” fields in the response).
+
+
+
+
